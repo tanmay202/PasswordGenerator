@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Neon Password Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: #00ffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 25px;
+            width: 350px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .container h1 {
+            text-align: center;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            background: #101010;
+            color: #00ffff;
+            box-shadow: inset 0 0 10px #00ffff;
+            outline: none;
+        }
+
+        .input-group button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            background: #00ffff;
+            color: #101010;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        .input-group button:hover {
+            background: #00e5e5;
+            box-shadow: 0 0 20px #00e5e5, 0 0 40px #00ffff;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #00ffff;
+            font-size: 14px;
+        }
+
+        .slider-group {
+            margin-bottom: 20px;
+        }
+
+        .slider-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #00ffff;
+        }
+
+        .slider-group input[type="range"] {
+            width: 100%;
+       
+            background: #00ffff;
+            border-radius: 10px;
+            height: 8px;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        .slider-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #0f0f0f;
+            border: 2px solid #00ffff;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        button#generate {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background: #00ffff;
+            color: #101010;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        button#generate:hover {
+            background: #00e5e5;
+            box-shadow: 0 0 20px #00e5e5, 0 0 40px #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Neon Password Generator</h1>
+        <div class="input-group">
+            <input type="text" id="password" placeholder="Your Password Here" readonly>
+            <button id="copy">Copy</button>
+        </div>
+        <div class="slider-group">
+            <label for="length">Password Length: <span id="lengthValue">8</span></label>
+            <input type="range" id="length" min="8" max="20" value="8">
+        </div>
+        <div class="options">
+            <label><input type="checkbox" id="includeSpecial"> Include Special Characters</label>
+            <label><input type="checkbox" id="includeNumbers"> Include Numbers</label>
+        </div>
+        <button id="generate">Generate Password</button>
+    </div>
+    <!-- <script>
+        const passwordField = document.getElementById('password');
+        const lengthSlider = document.getElementById('length');
+        const lengthValue = document.getElementById('lengthValue');
+        const includeSpecial = document.getElementById('includeSpecial');
+        const includeNumbers = document.getElementById('includeNumbers');
+        const generateButton = document.getElementById('generate');
+        const copyButton = document.getElementById('copy');
+
+        const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
+        const numbers = '0123456789';
+        const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        lengthSlider.addEventListener('input', () => {
+            lengthValue.textContent = lengthSlider.value;
+        });
+
+        generateButton.addEventListener('click', () => {
+            let characters = letters;
+            if (includeSpecial.checked) characters += specialChars;
+            if (includeNumbers.checked) characters += numbers;
+
+            const length = parseInt(lengthSlider.value);
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+            passwordField.value = password;
+        });
+
+        copyButton.addEventListener('click', () => {
+            passwordField.select();
+            document.execCommand('copy');
+            alert('Password copied to clipboard!');
+        });
+    </script> -->
+</body>
+</html>
